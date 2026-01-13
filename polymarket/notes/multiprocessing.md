@@ -1,4 +1,4 @@
-# Concurrent.futures
+okay# Concurrent.futures
 - Python package to asynchronously execute callables.
 
 ## ThreadPoolExecutor
@@ -10,6 +10,13 @@
 - To not spinup new threads 
 - To cap amount of threads (every thread needs its stack (memory))
 - Ensures consistent performance of system
+
+### Description:
+- Share memory
+- Python code can’t run CPU-bound Python code in parallel because of the GIL
+- But I/O (network, DB writes, HTTP requests) releases the GIL, so threads are fine
+
+
 
 ### Examples:
 ```python
@@ -24,3 +31,10 @@
 ```
 
 ## ProcessPoolExecutor
+
+### Description:
+
+- Each process has its own Python interpreter → runs truly in parallel
+- Separate memory → no GIL contention
+- Communication via multiprocessing.Queue, pipes, or other IPC
+
