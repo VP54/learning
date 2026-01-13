@@ -26,6 +26,7 @@ learning.xml
 learning.iml
 
 *.env
+*.pyc
 
 # RustRover
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
