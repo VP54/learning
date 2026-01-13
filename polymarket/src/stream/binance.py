@@ -1,17 +1,9 @@
-import json
-import asyncio
 import time
+import json
 import websockets
 
 
-async def binance_price_ws(queue: asyncio.Queue, symbols: list[str], throttle: float | int=0.3) -> None:
-    """Listen to binace stream OHLCV.
-
-    Args:
-        queue: asyncio.Queue - Queue to put message in
-        symbols: list[str] - List of symbols
-        throttle: float | int - Throttle OHlCV stream
-    """
+async def binance_price_ws(queue, symbols, throttle=0.3):
     streams = "/".join(f"{s}@ticker" for s in symbols)
     url = f"wss://fstream.binance.com/stream?streams={streams}"
 
@@ -25,6 +17,7 @@ async def binance_price_ws(queue: asyncio.Queue, symbols: list[str], throttle: f
                 last_update = now
                 data = json.loads(msg)
                 stream = data.get('stream')
+                print((stream, data['data']))
                 await queue.put(
                     (stream, data['data'])
                 )
