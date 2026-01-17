@@ -1,50 +1,38 @@
-import websocket
+import os
 import json
-import threading
-from queue import Queue
-
-
-
-from websocket import WebSocketApp
-import json
-import time
-import threading
-
-MARKET_CHANNEL = "market"
-USER_CHANNEL = "user"
-
-
-import json
-import threading
-import time
-import websocket
-from websocket import WebSocketApp
-
-MARKET_CHANNEL = "market"
-USER_CHANNEL = "user"
-
-
-import json
-import threading
-import time
-import websocket
-from websocket import WebSocketApp
-
-MARKET_CHANNEL = "market"
-
-
-import json
-import threading
-import time
-import websocket
 from queue import Queue
 from websocket import WebSocketApp
-
-MARKET_CHANNEL = "market"
+from dotenv import load_dotenv
 
 
 class WebSocketListener:
-    def __init__(self, url, asset_ids, queue: Queue):
+    """Websocket Listener to Polymarket.
+
+    Example:
+    -------
+        MARKET_CHANNEL = "market"
+        USER_CHANNEL = "user"
+        load_dotenv("")
+
+        url = os.getenv("POLYMARKET_WEBSOCKET_URL")
+        api_key = os.getenv("POLYMARKET_API_KEY")
+        api_secret = os.getenv("POLYMARKET_API_SECRET")
+        api_passphrase = os.getenv("POLYMARKET_API_PASSPHRASE")
+
+        asset_ids = ["115172850081268399385975128465963399335156000901458077700537686348329692537170"]
+        condition_ids = []
+        auth = {"apiKey": api_key, "secret": api_secret, "passphrase": api_passphrase}
+        listener = WebSocketListener(url, asset_ids, queue=Queue())
+        listener.run()
+    """
+    def __init__(self, url: str, asset_ids: list[str], queue: Queue):
+        """Initialize class.
+
+        Args:
+            url (str) - Polymarket URL
+            asset_ids (list) - List of asset IDs. (check ws for asset ids)
+            queue (Queue) - Queue - Queue to put messages to.
+        """
         self.url = url
         self.asset_ids = asset_ids
         self.queue = queue
@@ -84,28 +72,27 @@ class WebSocketListener:
 
 
 
-MARKET_CHANNEL = "market"
-USER_CHANNEL = "user"
-import os
 
+if __name__ == "__main__":
+    MARKET_CHANNEL = "market"
+    USER_CHANNEL = "user"
+    load_dotenv("../../.env")
 
-from dotenv import load_dotenv
-load_dotenv("../../.env")
+    url = os.getenv("POLYMARKET_WEBSOCKET_URL")
+    api_key = os.getenv("POLYMARKET_API_KEY")
+    api_secret = os.getenv("POLYMARKET_API_SECRET")
+    api_passphrase = os.getenv("POLYMARKET_API_PASSPHRASE")
 
-url = os.getenv("POLYMARKET_WEBSOCKET_URL")
-api_key = os.getenv("POLYMARKET_API_KEY")
-api_secret = os.getenv("POLYMARKET_API_SECRET")
-api_passphrase = os.getenv("POLYMARKET_API_PASSPHRASE")
+    asset_ids = [
+        "115172850081268399385975128465963399335156000901458077700537686348329692537170",
+    ]
+    condition_ids = [] # no really need to filter by this one
 
-asset_ids = [
-    "97212124472656863524759471926817043433361174058046518215176297401726819547323",
-]
-condition_ids = [] # no really need to filter by this one
+    auth = {"apiKey": api_key, "secret": api_secret, "passphrase": api_passphrase}
 
-auth = {"apiKey": api_key, "secret": api_secret, "passphrase": api_passphrase}
+    listener = WebSocketListener(url, asset_ids, queue=Queue())
 
-listener = WebSocketListener(url, asset_ids, queue=Queue())
-listener.run()
+    listener.run()
 
 
 
