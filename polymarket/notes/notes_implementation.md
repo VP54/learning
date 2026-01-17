@@ -16,9 +16,16 @@
   - This means those object just contain simple data: `dict`, `list`, `tuple`, `str`, `int`, `float`, `bytes`
 - Pickleable objects are usually simple data structures or properly defined classes.
 
+# Docker
+- To create a Quest DB use: `docker compose up`
 
+# QuestDB
 
+## Types:
 
+- **SYMBOL**
+  - like enum, for strings that repeat often
+  - stored separately from the column data. Represented as an integer under the hood.
 
 
 
