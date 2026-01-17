@@ -1,8 +1,6 @@
-import os
 import json
-from queue import Queue
 from websocket import WebSocketApp
-from dotenv import load_dotenv
+from polymarket.src.config.logger import logger
 
 
 
@@ -26,12 +24,13 @@ class WebSocketListener:
         listener = WebSocketListener(url, asset_ids, queue=Queue())
         listener.run()
     """
-    def __init__(self, url, asset_ids, queue, loop, market_channel):
+    def __init__(self, url, asset_ids, queue, loop, market_channel, logger=logger):
         self.url = url
         self.asset_ids = asset_ids
         self.queue = queue
         self.loop = loop
         self.market_channel = market_channel
+        self.logger = logger
 
         self.ws = WebSocketApp(
             f"{url}/ws/{market_channel}",
@@ -54,7 +53,7 @@ class WebSocketListener:
     def on_message(self, ws, message):
         if message == "NO NEW ASSETS":
             return
-        # thread → asyncio safely
+        logger.debug(f"POLYMARKET: \n\n {message}")
         self.loop.call_soon_threadsafe(self.queue.put_nowait, ("POLYMARKET", message))
 
     def on_error(self, ws, error):
@@ -63,5 +62,5 @@ class WebSocketListener:
     def on_close(self, ws, code, msg):
         print("[WS] Closed:", code, msg)
 
-    def run(self):
+    async def run(self):
         self.ws.run_forever(ping_interval=None)
