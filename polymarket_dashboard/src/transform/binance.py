@@ -1,10 +1,9 @@
 import logging
 
 
-def parse_message(message: str, logger: logging.Logger):
-    logger.info(f"Parsing message: {message}")
+def parse_binance_message(data: dict, logger: logging.Logger):
+    logger.debug(f"Parsing message: {data}")
 
-    data = message[1]
 
     payload = {
         "symbol": data['s'],
@@ -12,5 +11,5 @@ def parse_message(message: str, logger: logging.Logger):
         "volume": float(data['v']),
         "timestamp_binance": data['C']
     }
-    logger.info(payload)
+    logger.debug(payload)
     return payload

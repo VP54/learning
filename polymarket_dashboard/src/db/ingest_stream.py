@@ -5,24 +5,8 @@ import sys
 import datetime
 
 
-def parse_message(message, logger):
-    logger.info(f"Parsing message: {message}")
-
-    data = message[1]
-
-    payload = {
-        "symbol": data['s'],
-        "open": float(data['o']),
-        "volume": float(data['v']),
-        "timestamp_binance": data['C']
-    }
-    logger.info(payload)
-    return payload
-
-
-
 async def insert_into_db(conf, table_name, queue, func, executor, logger):
-    print("Starting DB insert task...")
+    logger.info("Starting DB insert task...")
     with Sender.from_conf(conf) as sender:
         while True:
             message = await queue.get()  # Await queue

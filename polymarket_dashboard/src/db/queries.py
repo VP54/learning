@@ -1,6 +1,6 @@
 from datetime import datetime
-from polymarket.src.config.types import Query
-from polymarket.src.config.enum import QuestDBPartitionBy
+from polymarket_dashboard.src.config.types import Query
+from polymarket_dashboard.src.config.enum import QuestDBPartitionBy
 
 
 def build_drop_table_query(table_name: str) -> Query:

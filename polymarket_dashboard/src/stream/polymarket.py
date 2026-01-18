@@ -1,6 +1,6 @@
 import json
 from websocket import WebSocketApp
-from polymarket.src.config.logger import logger
+from polymarket_dashboard.src.config.logger import logger
 
 
 
