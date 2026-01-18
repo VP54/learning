@@ -1,7 +1,7 @@
 import asyncio
-from polymarket.src.stream.binance import binance_price_ws
+from polymarket_dashboard.src.stream.binance import binance_price_ws
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
-from polymarket.src.db.ingest_stream import insert_into_db, parse_message
+from polymarket_dashboard.src.db.ingest_stream import insert_into_db, parse_message
 
 conf = (
     'http::addr=localhost:9000;'

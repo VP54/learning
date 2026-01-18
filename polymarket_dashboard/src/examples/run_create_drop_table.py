@@ -1,8 +1,8 @@
 import os, json, requests
 from questdb.ingress import Sender, TimestampNanos
-from polymarket.src.config.enum import QuestDBPartitionBy
-from polymarket.src.db.queries import build_drop_table_query, build_create_table_query
-from polymarket.src.db.run_query_http import execute_https_query
+from polymarket_dashboard.src.config.enum import QuestDBPartitionBy
+from polymarket_dashboard.src.db.queries import build_drop_table_query, build_create_table_query
+from polymarket_dashboard.src.db.run_query_http import execute_https_query
 
 
 host = "localhost"
