@@ -16,8 +16,6 @@
   - This means those object just contain simple data: `dict`, `list`, `tuple`, `str`, `int`, `float`, `bytes`
 - Pickleable objects are usually simple data structures or properly defined classes.
 
-# Docker
-- To create a Quest DB use: `docker compose up`
 
 # QuestDB
 
@@ -71,13 +69,27 @@
 
       ```
 ### Choice
+- Choice was made to limit if-else segments and learn a bit about different design patterns.
 
 #### Match - Case
+- Good for very simple logic
+- Not ideal for multiple sources
 
 #### Strategy
+- **Good**
+  - Good OOP pattern
+- 
+- **Bad**
+- Can become complex
+  - Introduces abstract classes etc.
 
 #### Register
+- **Good**
+  - Simple interface w/o overhead
+  - Can be scaled using decorators
 
+- **Bad**
+  - Parsers have to be initialized
 
 # Looping in python
 
