@@ -1,4 +1,5 @@
 import logging
+from polymarket_dashboard.src.transform.router import parse_message
 
 
 def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> tuple[list[float], list[float]]:
@@ -27,6 +28,7 @@ def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> 
     return prices, sizes
 
 
+@parse_message("polymarket")
 def parse_polymarket_message(message: dict, logger: logging.Logger):
 
     logger.debug(f"Parsing message: {message}")
