@@ -1,0 +1,23 @@
+[build-system]
+requires = ["uv_build >= 0.9.21, <0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "polymarket_dashboard"
+version = "0.1.0"
+description = "Your package description"
+authors = [{ name = "VP54", email = "vp@example.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+
+dependencies = [
+    "requests==2.31.0",
+    "numpy==2.4.1",
+    "questdb==4.1.0",
+    "polars==1.35",
+    "plotly==6.1.0",
+    "streamlit==1.47.0",
+    "streamlit-autorefresh==1.0.1"
+]
+packages = [{ include = "polymarket_dashboard", from = "src" }]
