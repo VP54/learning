@@ -1,9 +1,10 @@
 import logging
-from polymarket_dashboard.src.polymarket_dashboard.src.utils.message_handler import register
-from polymarket_dashboard.src.polymarket_dashboard.src.config.enum import Exchange
+import numpy as np
+from polymarket_dashboard.src.utils.message_handler import register
+from polymarket_dashboard.src.config.enum import Exchange
 
 
-def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> tuple[list[float], list[float]]:
+def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> np.array:
     """Parse orderbook side.
 
     Args:
@@ -11,7 +12,7 @@ def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> 
         logger (logging.Logger): logger.
 
     Returns:
-        tuple[list[float], list[float]]: bid_prices, bid_sizes
+        np.array: bid_prices, bid_sizes
     """
     float_ = float
     prices, sizes = [], []
@@ -26,17 +27,17 @@ def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> 
     logger.debug(f"Polymarket Orderbook Prices: {prices}")
     logger.debug(f"Polymarket Orderbook Sizes: {sizes}")
 
-    return prices, sizes
+    return np.array([prices, sizes], np.float64)
 
 
-@register(Exchange.Polymarket)
+@register(Exchange.Polymarket.value)
 def parse_polymarket_message(message: dict, logger: logging.Logger):
 
     logger.debug(f"Parsing message: {message}")
 
-    data = message[0]
-    last_price = data["last_trade_price"]
-    timestamp = data["timestamp"]
+    data = message
+    last_price = data.get("last_trade_price", None)
+    timestamp = int(data["timestamp"])
     bids = data["bids"]
     asks = data["asks"]
 
@@ -48,7 +49,7 @@ def parse_polymarket_message(message: dict, logger: logging.Logger):
     )
 
     return {
-        "timestamp": timestamp,
+        "timestamp_exchange": timestamp,
         "last_price": last_price,
         "bids": parsed_bids,
         "asks": parsed_asks,
