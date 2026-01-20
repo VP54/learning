@@ -1,6 +1,8 @@
 import json
+import ast
 from websocket import WebSocketApp
-from polymarket_dashboard.src.polymarket_dashboard.src.config.logger import logger
+from polymarket_dashboard.src.config.logger import logger
+from polymarket_dashboard.src.config.enum import Exchange
 
 
 class WebSocketListener:
@@ -31,6 +33,11 @@ class WebSocketListener:
         self.market_channel = market_channel
         self.logger = logger
 
+        logger.info(
+            f"Connecting to Polymarket: url: {self.url}, asset_ids: {self.asset_ids}, queue: {self.queue}"
+            f"Loop: {self.loop}, market_channel: {self.market_channel}"
+        )
+
         self.ws = WebSocketApp(
             f"{url}/ws/{market_channel}",
             on_open=self.on_open,
@@ -52,8 +59,12 @@ class WebSocketListener:
     def on_message(self, ws, message):
         if message == "NO NEW ASSETS":
             return
-        logger.debug(f"POLYMARKET: \n\n {message}")
-        self.loop.call_soon_threadsafe(self.queue.put_nowait, ("POLYMARKET", message))
+
+        message = ast.literal_eval(message)
+
+        if message['event_type'] == "book":
+            logger.debug(f"POLYMARKET - {message} \t {self.queue.qsize()}")
+            self.loop.call_soon_threadsafe(self.queue.put_nowait, (Exchange.Polymarket.value, message))
 
     def on_error(self, ws, error):
         print("[WS] Error:", error)
