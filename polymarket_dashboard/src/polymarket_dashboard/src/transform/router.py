@@ -1,5 +1,5 @@
 import logging
-from polymarket_dashboard.src.polymarket_dashboard.src.utils.message_handler import get_handler
+from polymarket_dashboard.src.utils.message_handler import get_handler
 
 
 def route_message(message: tuple[str, str], logger: logging.Logger) -> dict[str, any]:
@@ -23,8 +23,8 @@ if __name__ == '__main__':
     from polymarket_dashboard.src.polymarket_dashboard.src.config.logger import create_logger
     from polymarket_dashboard.data.polymarket_ws_response import SAMPLE_RESPONSE
     from polymarket_dashboard.data.binance_ws_response import SAMPLE_BINANCE_RESPONSE
-    from polymarket_dashboard.src.polymarket_dashboard.src.utils.message_handler import init_handlers
-    from polymarket_dashboard.src.polymarket_dashboard.src.config.paths import MESSAGE_HANDLER_PATH
+    from polymarket_dashboard.src.utils.message_handler import init_handlers
+    from polymarket_dashboard.src.config.paths import MESSAGE_HANDLER_PATH
 
     init_handlers(MESSAGE_HANDLER_PATH)
     logger = create_logger(level=logging.DEBUG, name="test_parse_polymarket_message")
