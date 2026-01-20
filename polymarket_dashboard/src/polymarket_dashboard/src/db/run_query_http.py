@@ -1,5 +1,5 @@
 import requests
-from polymarket_dashboard.src.polymarket_dashboard.src.config.types import Query
+from polymarket_dashboard.src.config.types import Query
 
 
 def execute_https_query(host: str, port: int | str, query: Query) -> requests.Response:

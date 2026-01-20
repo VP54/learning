@@ -1,5 +1,5 @@
 from typing import Callable
-from polymarket_dashboard.src.polymarket_dashboard.src.config.enum import Exchange
+from polymarket_dashboard.src.config.enum import Exchange
 
 
 Query: str = ""
