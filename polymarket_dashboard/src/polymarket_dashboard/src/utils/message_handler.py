@@ -1,5 +1,6 @@
 import pkgutil, importlib
-from polymarket_dashboard.src.polymarket_dashboard.src.config.types import MessageHandler
+from polymarket_dashboard.src.config.types import MessageHandler
+from polymarket_dashboard.src.config.paths import MESSAGE_HANDLER_PATH
 
 __all__ = ["register", "get_handler", "init_handlers"]
 
@@ -14,14 +15,19 @@ def register(exchange: str):
     """
     def decorator(fn: MessageHandler):
         _HANDLERS[exchange.upper()] = fn
+        print(_HANDLERS)
         return fn
     return decorator
 
-def get_handler(exchange: str) -> MessageHandler:
-    return _HANDLERS[exchange.upper()]
 
 def init_handlers(package: str):
     """Dynamically import all modules in a package to trigger handler registration."""
     pkg = importlib.import_module(package)
     for _, module_name, _ in pkgutil.iter_modules(pkg.__path__):
         importlib.import_module(f"{package}.{module_name}")
+
+
+def get_handler(exchange: str) -> MessageHandler:
+    init_handlers(MESSAGE_HANDLER_PATH)
+    return _HANDLERS[exchange.upper()]
+
