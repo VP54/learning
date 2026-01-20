@@ -9,3 +9,8 @@ class StrEnum(str, Enum):
 class Exchange(StrEnum):
     Polymarket = "POLYMARKET"
     Binance = "BINANCE"
+
+
+class DatabaseTableNames(str, Enum):
+    Binance = "binance_trades"
+    Polymarket = "polymarket_trades"
