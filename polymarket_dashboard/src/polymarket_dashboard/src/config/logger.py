@@ -1,12 +1,28 @@
 import logging
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s",)
+log_formatter = logging.Formatter(fmt="%(asctime)s | [%(threadName)-12.12s] | %(levelname)s | %(message)s")
 
-logger = logging.getLogger("db")
+logger = logging.getLogger()
+fileHandler = logging.FileHandler("./polymarket_dashboard.log", mode='a')
+fileHandler.setFormatter(log_formatter)
+logger.addHandler(fileHandler)
+
+consoleHandler = logging.StreamHandler()
+consoleHandler.setFormatter(log_formatter)
+logger.addHandler(consoleHandler)
 
 
 def create_logger(level=logging.INFO, name="db"):
-    logging.basicConfig(level=level, format="%(asctime)s | %(levelname)s | %(message)s",)
+    log_formatter = logging.Formatter(
+        fmt="%(asctime)s | [%(threadName)-12.12s] | %(levelname)s | %(message)s"
+    )
 
-    logger = logging.getLogger(name)
+    logger = logging.getLogger()
+    fileHandler = logging.FileHandler("./polymarket_dashboard.log", mode="a")
+    fileHandler.setFormatter(log_formatter)
+    logger.addHandler(fileHandler)
+
+    consoleHandler = logging.StreamHandler()
+    consoleHandler.setFormatter(log_formatter)
+    logger.addHandler(consoleHandler)
     return logger

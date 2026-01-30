@@ -37,7 +37,9 @@ SCHEMA_POLYMARKET_TRADES = """
     bids DOUBLE[][],
     asks DOUBLE[][],
     ticker SYMBOL,
-    price DOUBLE
+    price DOUBLE,
+    asset_id SYMBOL,
+    market SYMBOL
 """
 INDEX_POLYMARKET_TRADES = "exchange"
 PARTITION_POLYMARKET_BY = "DAY"
