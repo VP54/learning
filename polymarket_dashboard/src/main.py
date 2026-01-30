@@ -1,3 +1,4 @@
+import logging
 import os
 import asyncio
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
@@ -9,12 +10,16 @@ from polymarket_dashboard.src.config.query import (
 )
 from polymarket_dashboard.src.stream.polymarket import WebSocketListener
 from polymarket_dashboard.src.stream.binance import binance_price_ws
-from polymarket_dashboard.src.config.logger import logger
+from polymarket_dashboard.src.config.logger import create_logger
 from polymarket_dashboard.src.db.ingest_stream import _insert_into_db
 from polymarket_dashboard.src.transform.router import route_message
 from polymarket_dashboard.src.config.enum import DatabaseTableNames
+from polymarket_dashboard.src.utils.init_event_date import get_initial_datetime
+from polymarket_dashboard.src.polymarket_api.add_asset_id import add_asset_ids
 
 
+
+logger = create_logger(logging.WARNING)
 conf = (
     'http::addr=localhost:9000;'
     'username=admin;password=quest;'
@@ -29,9 +34,6 @@ load_dotenv('../.env')
 url = os.getenv("POLYMARKET_WEBSOCKET_URL")
 symbols = ["btcusdt"]
 
-asset_ids = [
-    "7186450483690511285673601255974383886523472817529489477086583808604785772817",
-]
 
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
@@ -44,20 +46,35 @@ async def run_listener(listener: WebSocketListener):
     await loop.run_in_executor(executor, listener.ws.run_forever, None)  # ping_interval=None
 
 
+async def asset_id_updater(listener, logger):
+    while True:
+        try:
+            new_asset_ids, _ = await add_asset_ids(
+                list(listener.asset_ids),
+                logger=logger,
+            )
+            await listener.add_asset_ids(new_asset_ids)
+        except Exception:
+            logger.exception("asset_id updater failed")
+
+        await asyncio.sleep(30)  # or whatever cadence
 
 
 async def main():
+    init_asset_ids = []
     loop = asyncio.get_running_loop()
+    _now = get_initial_datetime()
+    init_asset_ids, asset_id_timestamp_dict = await add_asset_ids(init_asset_ids, now=_now, logger=logger)
     # Queues
     binance_queue = asyncio.Queue(maxsize=10_000)
     poly_queue = asyncio.Queue(maxsize=2_000)
 
     # Executor for CPU-bound parsing
-    listener = WebSocketListener(url, asset_ids, queue=poly_queue, loop=loop, market_channel=MARKET_CHANNEL)
+    listener = WebSocketListener(url, init_asset_ids, queue=poly_queue, loop=loop, market_channel=MARKET_CHANNEL)
     executor = ProcessPoolExecutor(max_workers=4)
 
-
     tasks = [
+        asyncio.create_task(asset_id_updater(listener, logger)),
         asyncio.create_task(binance_price_ws(queue=binance_queue, symbols=symbols, throttle=0.001)),
         asyncio.create_task(_insert_into_db(conf, DatabaseTableNames.Binance.value, binance_queue, route_message, executor, logger)),
         asyncio.create_task(run_listener(listener)),
@@ -66,6 +83,10 @@ async def main():
 
     await asyncio.gather(*tasks)
 
+minute = 40
+modulo = 15
+_minute = modulo - minute % modulo - 1 + minute
+print(_minute)
 
 if __name__ == "__main__":
     from polymarket_dashboard.src.config.paths import MESSAGE_HANDLER_PATH
