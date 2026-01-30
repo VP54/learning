@@ -40,6 +40,8 @@ def parse_polymarket_message(message: dict, logger: logging.Logger):
     timestamp = int(data["timestamp"])
     bids = data["bids"]
     asks = data["asks"]
+    market = data['market']
+    asset_id = data['asset_id']
 
     parsed_bids = parse_side(bids, logger)
     parsed_asks = parse_side(asks, logger)
@@ -49,11 +51,13 @@ def parse_polymarket_message(message: dict, logger: logging.Logger):
     )
 
     return {
-        "timestamp_exchange": timestamp,
+        "timestamp_exchange": timestamp * 1000,
         "last_price": last_price,
         "bids": parsed_bids,
         "asks": parsed_asks,
         "exchange": Exchange.Polymarket.value,
+        "market": market,
+        "asset_id": asset_id,
     }
 
 if __name__ == "__main__":
