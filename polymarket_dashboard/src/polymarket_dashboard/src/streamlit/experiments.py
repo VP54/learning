@@ -5,6 +5,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
+def create_scatter_plot(df, x, y):
+    return st.scatter_chart(df, x="a", y="b")
+
+def create_table(df):
+    return st.dataframe(df)
+
+
 def main():
     st.title("Uber pickups in NYC")
 
@@ -13,8 +20,8 @@ def main():
         "b": range(2, 7),
     })
 
-    st.dataframe(df)
-    st.scatter_chart(df, x="a", y="b")
+    create_scatter_plot(df, x="a", y="b")
+    create_table(df)
 
 
 
