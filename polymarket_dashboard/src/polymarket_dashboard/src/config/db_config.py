@@ -1,10 +1,10 @@
+from pydantic import BaseModel, Field
 import os
-from pydantic import BaseModel
 
 
 class DatabaseConfig(BaseModel):
     database: str
-    host: str = os.getenv("DB_HOST")
-    port: int = os.getenv("DB_PORT")
-    username: str = os.getenv("DB_USERNAME")
-    password: str = os.getenv("DB_PASSWORD")
+    host: str = Field(default_factory=lambda: os.getenv("DB_HOST"))
+    port: int = Field(default_factory=lambda: int(os.getenv("DB_PORT")))
+    username: str = Field(default_factory=lambda: os.getenv("DB_USERNAME"))
+    password: str = Field(default_factory=lambda: os.getenv("DB_PASSWORD"))
