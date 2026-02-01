@@ -23,7 +23,7 @@ def extract_data_from_questdb(query: Query, config: DatabaseConfig, logger: logg
 
     Args:
         query (Query): DB query to be executed
-        config (DatabaseConfig): config to conenct to database
+        config (DatabaseConfig): config to connect to database
         logger (logging.Logger):
         batch_size: int = 1000
     """
