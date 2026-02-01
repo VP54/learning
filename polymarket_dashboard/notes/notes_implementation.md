@@ -25,6 +25,47 @@
   - like enum, for strings that repeat often
   - stored separately from the column data. Represented as an integer under the hood.
 
+## Dashboard performance needs
+
+### LATEST ON
+  - Query `LATEST ON` takes the latest rows based on some partition (ticker/timestamp)
+  ```sql
+    SELECT ticker, timestamp, price
+    FROM trades
+    LATEST ON timestamp PARTITION BY ticker;
+  ```
+  - this would return latest ticker based on timestamp.
+  - There is also a query execution precedence:
+    ```sql
+      (SELECT * FROM table LATEST ON timestamp PARTITION BY TICKER)
+      WHERE volume > 2000;
+    ```
+    - the above query first runs the sub-query (returning all the latest records -> then filters)
+    ```sql
+      SELECT * FROM table LATEST ON timestamp PARTITION BY TICKER
+      WHERE volume > 2000;
+    ```
+    - the above query first filters -> returns latest tickers by timestamps
+
+### Views
+- view is a way to access specific data based on query that is standardized and used quite often.
+
+#### Materialized view
+  - ends up as a simple lookup O(1)
+  - takes up disk space
+  - Materialized views solve this by pre-computing and storing the aggregated results. 
+  - When new data arrives, only the new rows are processed incrementally.
+
+#### Regular view
+  - query that runs every time the view is called
+  - doesnt consume disk space
+  - not ideal when multiple client wants the data (computations * nuber of clients)
+
+#### Tradeoffs
+  - When multiple clients need to access (and need to compute heavy) then materialized.
+  - if concerns about sizes -> regular views 
+
+
 # Design patterns
 - *Problems I met and what I used instead*
 
