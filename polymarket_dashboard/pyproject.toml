@@ -20,7 +20,13 @@ dependencies = [
     "plotly==6.1.0",
     "streamlit==1.47.0",
     "streamlit-autorefresh==1.0.1",
-    "ccxt==4.5.39"
+    "ccxt==4.5.39",
+    "python-dotenv==1.2.1",
+    "pydantic==2.12.5",
+    "fastapi[standard]==0.133.1",
+    "uvicorn[standard]==0.41.0",
+    "python-dotenv==1.2.1",
+
 ]
 
 # Packages to include in your distribution
