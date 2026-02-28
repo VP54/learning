@@ -1,0 +1,286 @@
+2026-01-21 16:25:59,372 | [MainThread  ] | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py:10> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2270, in <module>
+    main()
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 36, in <module>
+    asset_ids = asyncio.run(main(current_asset_ids, now=mock_now, logger=None))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 360, in __wakeup
+    self.__step()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 394, in step
+    step_orig(task, exc)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 19, in main
+    asset_ids = await parse_message(responses, market_timestamps)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/parse_events.py", line 18, in parse_message
+    response_json = ast.literal_eval(response[0])
+            ^^^^
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_darwin_311_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 937, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 928, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1220, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1235, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2026-01-21 16:43:48,119 | [MainThread  ] | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py:10> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2270, in <module>
+    main()
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 36, in <module>
+    asset_ids = asyncio.run(main(current_asset_ids, now=mock_now, logger=None))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 394, in step
+    step_orig(task, exc)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 17, in main
+    market_timestamps = get_next_intervals(now=now, logger=logger)
+                        ^^^^^^^^^^^^^^^^^^
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_darwin_311_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 937, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 928, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1220, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1235, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2026-01-21 16:44:18,113 | [MainThread  ] | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py:10> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2270, in <module>
+    main()
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 36, in <module>
+    asset_ids = asyncio.run(main(current_asset_ids, now=mock_now, logger=None))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 394, in step
+    step_orig(task, exc)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 17, in main
+    market_timestamps = get_next_intervals(now=now, logger=logger)
+                        ^^^^^^^^^^^^^^^^^^
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_darwin_311_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 937, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 928, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1220, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1235, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2026-01-21 16:49:06,182 | [MainThread  ] | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py:10> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2270, in <module>
+    main()
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 36, in <module>
+    asset_ids = asyncio.run(main(current_asset_ids, now=mock_now, logger=None))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 394, in step
+    step_orig(task, exc)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 17, in main
+    market_timestamps = get_next_intervals(now=now, logger=logger)
+                        ^^^^^^^^^^^^^^^^^^
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_darwin_311_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 937, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 928, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1220, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1235, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2026-01-21 16:56:49,041 | [MainThread  ] | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py:10> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2270, in <module>
+    main()
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 36, in <module>
+    asset_ids = asyncio.run(main(current_asset_ids, now=mock_now, logger=None))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 360, in __wakeup
+    self.__step()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 394, in step
+    step_orig(task, exc)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 19, in main
+    asset_id_timestamp_dict = await parse_message(responses)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/parse_events.py", line 18, in parse_message
+    for response in responses:
+                    ^^^^^^^^^
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_darwin_311_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 937, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 928, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1220, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1235, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2026-01-21 17:11:17,104 | [MainThread  ] | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py:10> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2270, in <module>
+    main()
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 36, in <module>
+    current_asset_ids, asset_id_timestamp_dict = asyncio.run(main(current_asset_ids, now=mock_now, logger=None))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 138, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 234, in run_until_complete
+    self._run_once()
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 286, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers-pro/pydevd_asyncio/pydevd_nest_asyncio.py", line 394, in step
+    step_orig(task, exc)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Users/vaclavpazderka/Desktop/programming/personal/learning/polymarket_dashboard/src/polymarket_dashboard/src/polymarket_api/add_asset_id.py", line 17, in main
+    market_timestamps = get_next_intervals(now=now, logger=logger)
+                        ^^^^^^^^^^^^^^^^^^
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_darwin_311_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 937, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 928, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_311_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_darwin_311_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1220, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py", line 1235, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
