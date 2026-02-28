@@ -55,4 +55,5 @@ if __name__ == "__main__":
     from polymarket_dashboard.src.config.db_config import DatabaseConfig
     db_config = DatabaseConfig(database="polymarket_trades")
     query: Query="SELECT * FROM polymarket_trades LIMIT 10"
-    extract_data_from_questdb(config=db_config, query=query, logger=logging.Logger)
+    response = extract_data_from_questdb(config=db_config, query=query, logger=logging.getLogger(__name__))
+    print(response)
