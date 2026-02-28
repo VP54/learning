@@ -36,7 +36,6 @@ symbols = ["btcusdt"]
 
 
 import asyncio
-from concurrent.futures import ThreadPoolExecutor
 
 executor = ThreadPoolExecutor(max_workers=1)  # single thread for WebSocket
 
@@ -91,8 +90,6 @@ print(_minute)
 if __name__ == "__main__":
     from polymarket_dashboard.src.config.paths import MESSAGE_HANDLER_PATH
     from polymarket_dashboard.src.utils.message_handler import init_handlers
-    from polymarket_dashboard.src.transform.polymarket import parse_polymarket_message
-    from polymarket_dashboard.src.transform.binance import parse_binance_message
     init_handlers(MESSAGE_HANDLER_PATH)
 
     create_table_if_not_exists(
@@ -111,7 +108,7 @@ if __name__ == "__main__":
 
     asyncio.run(main())
 
-from questdb.ingress import Sender, IngressError
+from questdb.ingress import Sender
 import datetime
 with Sender.from_conf(conf) as sender:
     sender.row(table_name=table_name, columns={"exchange": "POLYMARKET"}, at=datetime.datetime.now(datetime.timezone.utc))
