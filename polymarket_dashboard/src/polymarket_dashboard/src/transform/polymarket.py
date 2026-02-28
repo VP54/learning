@@ -32,11 +32,11 @@ def parse_side(orderbook_side: list[dict[str, str]], logger: logging.Logger) -> 
 
 @register(Exchange.Polymarket.value)
 def parse_polymarket_message(message: dict, logger: logging.Logger):
-
     logger.debug(f"Parsing message: {message}")
-
     data = message
     last_price = data.get("last_trade_price", None)
+    print(message)
+    print(last_price)
     timestamp = int(data["timestamp"])
     bids = data["bids"]
     asks = data["asks"]
@@ -61,7 +61,9 @@ def parse_polymarket_message(message: dict, logger: logging.Logger):
     }
 
 if __name__ == "__main__":
-    import os, json, sys
+    import os
+    import json
+    import sys
     sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
     from polymarket_dashboard.src.polymarket_dashboard.src.config.logger import create_logger
     logger = create_logger(level=logging.DEBUG, name="test_parse_polymarket_message")

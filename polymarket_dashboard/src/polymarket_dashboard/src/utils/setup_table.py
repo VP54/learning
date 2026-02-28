@@ -1,4 +1,4 @@
-from polymarket_dashboard.src.db.execute_query import build_drop_table_query, build_create_table_query
+from polymarket_dashboard.src.db.execute_query import build_create_table_query
 from polymarket_dashboard.src.db.run_query_http import execute_https_query
 from polymarket_dashboard.src.config.logger import logger
 
