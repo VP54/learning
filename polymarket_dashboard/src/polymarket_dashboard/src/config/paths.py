@@ -1,1 +1,0 @@
-MESSAGE_HANDLER_PATH = "polymarket_dashboard.src.transform"
