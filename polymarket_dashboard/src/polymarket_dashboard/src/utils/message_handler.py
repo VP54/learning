@@ -1,4 +1,5 @@
-import pkgutil, importlib
+import pkgutil
+import importlib
 from polymarket_dashboard.src.config.types import MessageHandler
 from polymarket_dashboard.src.config.paths import MESSAGE_HANDLER_PATH
 
