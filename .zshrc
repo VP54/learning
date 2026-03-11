@@ -22,6 +22,7 @@ gcp() {
   git add .
   git commit -m "wip"
   git push origin "$branch"
+  open -a "Google Chrome" "$repo_url/compare/$branch?expand=1"
 }
 
 
@@ -36,6 +37,7 @@ gcpm() {
   git add .
   git commit -m "$message"
   git push origin "$branch"
+  open -a "Google Chrome" "$repo_url/compare/$branch?expand=1"
 }
 
 gbd() {
@@ -73,7 +75,7 @@ gp() {
 
   git push origin "$branch" || return 1
 
-  open "$repo_url/compare/$branch?expand=1"
+  open -a "Google Chrome" "$repo_url/compare/$branch?expand=1"
 }
 
 gcm() {
