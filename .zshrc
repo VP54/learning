@@ -1,6 +1,17 @@
-export WORK=~/Desktop/programming/work
-export PERSONAL=~/Desktop/programming/personal
-export RESEARCH=~/Desktop/programming/personal/quant_research
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+
+alias pip=pip3
+
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+# plugins=(git)
+
+export PERSONAL=~/Desktop/programming/
 
 export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
@@ -15,6 +26,20 @@ export PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
 gs() {
 	git status
 	return 1
+}
+
+unalias gcp 2>/dev/null
+
+gfp() {
+	echo "Fetching all remotes, checking out to main and pulling remote branch"
+	git fetch --all
+	git checkout main
+	git pull
+}
+
+uvs() {
+  uv sync
+  uv pip install -e .
 }
 
 gcp() {
@@ -40,6 +65,8 @@ gcpm() {
   open -a "Google Chrome" "$repo_url/compare/$branch?expand=1"
 }
 
+unalias gbd 2>/dev/null
+
 gbd() {
     echo -n "Enter branch to delete: "
     read branch
@@ -56,6 +83,7 @@ gbd() {
 
 }
 
+unalias gcb 2>/dev/null
 
 gcb() {
     echo -n "Enter new branch name: "
@@ -63,6 +91,7 @@ gcb() {
     git checkout -b "$branch"
 }
 
+unalias gp 2>/dev/null
 
 gp() {
   local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
@@ -77,6 +106,8 @@ gp() {
 
   open -a "Google Chrome" "$repo_url/compare/$branch?expand=1"
 }
+
+unalias gcm 2>/dev/null
 
 gcm() {
 	echo -n "Enter commit message: "
@@ -95,3 +126,5 @@ zstyle ':vcs_info:git:*' formats '%b'
 setopt PROMPT_SUBST
 
 PROMPT='[%n@%m %1~]%F{green}(${vcs_info_msg_0_})%F{white}$ '
+
+. "$HOME/.local/bin/env"
